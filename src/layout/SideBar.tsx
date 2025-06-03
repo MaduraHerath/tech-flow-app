@@ -10,9 +10,14 @@ const Sidebar: React.FC = () => {
     <div className="d-flex flex-column p-3 bg-light" style={{ width: '250px', height: '100vh' }}>
       <h4 className="mb-4">Navigation</h4>
       <ul className="nav nav-pills flex-column mb-auto">
-
         <li className="nav-item">
           <Link to="/dashboard" className="nav-link text-dark">
+            Dashboard
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link to="/projects" className="nav-link text-dark">
             Projects
           </Link>
         </li>

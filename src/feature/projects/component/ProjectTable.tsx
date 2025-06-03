@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import type { Project } from '../../../types/types';
+import useRole from '../../../hooks/useRole';
 
 interface ProjectTableProps {
   projects: Project[];
@@ -9,7 +10,7 @@ interface ProjectTableProps {
 
 const ProjectTable: React.FC<ProjectTableProps> = ({ projects }) => {
   const navigate = useNavigate();
-
+const { hasRole } = useRole();
   const handleEdit = (id: string) => {
     navigate(`/projects/${id}/edit`);
   };
@@ -27,7 +28,9 @@ const ProjectTable: React.FC<ProjectTableProps> = ({ projects }) => {
             <th>Assigned To</th>
             <th>Due Date</th>
             <th>Description</th>
-            <th>Action</th> {/* New column for actions */}
+             {hasRole('admin') || hasRole('project_manager') &&
+            <th>Action</th> 
+             }
           </tr>
         </thead>
         <tbody>
@@ -57,12 +60,14 @@ const ProjectTable: React.FC<ProjectTableProps> = ({ projects }) => {
               <td>{new Date(project.dueDate).toLocaleDateString()}</td>
               <td>{project.description}</td>
               <td>
+                {hasRole('admin') || hasRole('project_manager') &&
                 <button
                   className="btn btn-sm btn-outline-primary"
                   onClick={() => handleEdit(project.id)}
                 >
                   Edit
                 </button>
+}
               </td>
             </tr>
           ))}

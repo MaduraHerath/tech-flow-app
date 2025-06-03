@@ -1,74 +1,74 @@
-# Project Name
+# Project Management Dashboard
 
-> A modern frontend project built with Vite, Bootstrap, TypeScript, and RTK Query, following a feature-based architecture.
+This is a **React + TypeScript** project using **Vite**, **RTK Query**, **Bootstrap**, and a **feature-based architecture**.
 
-## Table of Contents
+## 🔧 Features
 
-- [About](#about)  
-- [Technologies](#technologies)  
-- [Architecture](#architecture)  
-- [Getting Started](#getting-started)  
-- [Available Scripts](#available-scripts)  
-- [Project Structure](#project-structure)  
-- [Contributing](#contributing)  
-- [License](#license)  
+- 🔐 Role-based access control (`admin`, `project_manager`, `team_member`)
+- 📁 Feature-based folder structure for better scalability
+- 🚀 RTK Query for data fetching and caching
+- 🎯 Bootstrap UI with clean responsive design
+- 📊 Conditional dashboards (analytics, team metrics, personal tasks)
+- 🔍 Project filtering by team and assignment
+- ✏️ Edit access control for Admin/PMs of specific teams
 
----
-
-## About
-
-This project is a scalable frontend application bootstrapped with Vite and styled with Bootstrap. It uses TypeScript for type safety and RTK Query for efficient data fetching and state management. The codebase is organized using a **feature-based architecture** to improve modularity, maintainability, and scalability.
-
----
-
-## Technologies
-
-- **Vite** — Next-generation frontend tooling for fast builds and hot module replacement  
-- **Bootstrap** — Popular CSS framework for responsive, mobile-first UI design  
-- **TypeScript** — Superset of JavaScript adding static typing  
-- **Redux Toolkit & RTK Query** — Simplified Redux setup and powerful data fetching logic  
-
----
-
-## Architecture
-
-The project follows a **feature-based architecture**, where files are organized by features/modules rather than by file types. Each feature folder encapsulates its own components, state management, services, and styles. This pattern improves separation of concerns and allows teams to work independently on features.
-
-Example:
-
-src/
-features/
-user/
-components/
-hooks.ts
-userSlice.ts
-userApi.ts
-product/
-components/
-productSlice.ts
-productApi.ts
-app/
-store.ts
-assets/
-styles/
-
-
----
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (>=14.x recommended)  
-- npm or yarn
-
-### Installation
-
-```bash
-git clone https://github.com/yourusername/your-project.git
-cd your-project
-npm install
+## 🗂️ Architecture (Feature-based)
 
 ```
-###  Running the app locally
+src/
+│
+├── app/                # Store configuration
+├── components/         # Shared reusable components
+├── features/           # Main feature modules
+│   ├── auth/           # Authentication & user state
+│   ├── project/        # Project-related API, pages, components
+│   └── dashboard/      # Role-based dashboard views
+├── hooks/              # Custom reusable hooks (e.g. useRole)
+├── layouts/            # App layout components
+├── routes/             # Protected and role-based routes
+└── types/              # Global TypeScript types
+```
+
+## 🚀 Getting Started
+
+### 1. Install dependencies
+
+```
+npm install
+```
+
+### 2. Run the development server
+
+```
 npm run dev
+```
+
+### 3. Build for production
+
+```
+npm run build
+```
+
+### 4. Preview production build
+
+```
+npm run preview
+```
+
+## 🔐 Roles & Access
+
+| Role             | Access                                                                 |
+|------------------|------------------------------------------------------------------------|
+| `admin`          | All projects, analytics, edit access                                   |
+| `project_manager`| Team-specific projects, performance metrics, edit access               |
+| `team_member`    | Only assigned projects, personal task-focused dashboard                |
+
+## 📌 Notes
+
+- You must be logged in to access protected routes.
+- Only admins and PMs can edit projects, and PMs can only edit their team's projects.
+- Projects can be filtered by team if you're an admin.
+
+---
+
+MIT © 2025
