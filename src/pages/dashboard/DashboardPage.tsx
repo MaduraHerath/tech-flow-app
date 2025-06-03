@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectList from '../../feature/projects/ProjectsList';
+import ProjectList from '../../feature/projects/ProjectsView';
 
 const ProjectPage: React.FC = () => {
 

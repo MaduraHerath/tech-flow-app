@@ -9,6 +9,8 @@ import ProjectPage from '../../pages/ProjectPage';
 import AnalyticsPage from '../../pages/AnalyticsPage';
 import ProtectedRoute from './ProtectedRoute';
 import NotFoundPage from '../../pages/NotFoundPage';
+import ProjectAddPage from '../../pages/project/ProjectAddPage';
+import ProjectEditPage from '../../pages/project/ProjectEditPage';
 
 const AppRoutes = () => {
   return (
@@ -26,6 +28,15 @@ const AppRoutes = () => {
           <Route element={<ProtectedRoute allowedRoles={['project_manager']} />}>
             <Route path="project" element={<ProjectPage />} />
           </Route>
+
+          <Route element={<ProtectedRoute allowedRoles={['project_manager', 'admin']} />}>
+            <Route path="projects/new" element={<ProjectAddPage />} />
+          </Route>
+
+          <Route element={<ProtectedRoute allowedRoles={['project_manager', 'admin']} />}>
+            <Route path="/projects/:id/edit" element={<ProjectEditPage />} />
+          </Route>
+
 
           {/* Analytics page - only accessible by admins */}
           <Route element={<ProtectedRoute allowedRoles={['admin']} />}>

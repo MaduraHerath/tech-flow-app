@@ -5,6 +5,7 @@ import ProjectTable from './component/ProjectTable';
 import TeamFilter from './component/TeamFilter';
 import { useGetProjectsQuery } from './projectApi';
 import { useAppSelector } from '../../hooks/hook';
+import AddProjectButton from './component/AddProject';
 
 const ProjectList: React.FC = () => {
   const { data: allProjects = [], isLoading, error } = useGetProjectsQuery();
@@ -18,7 +19,7 @@ const ProjectList: React.FC = () => {
   if (!user) return [];
 
   // Start with role-based filtering
-  let projectsByRole;
+  let projectsByRole: any[];
   switch (user.role) {
     case 'admin':
       // Admin sees all projects
@@ -66,6 +67,11 @@ const ProjectList: React.FC = () => {
         teams={teams}
         selectedTeam={selectedTeam}
         onChange={setSelectedTeam}
+      />
+        }
+
+        {hasRole('admin') || hasRole('project_manager') &&
+          <AddProjectButton
       />
         }
     

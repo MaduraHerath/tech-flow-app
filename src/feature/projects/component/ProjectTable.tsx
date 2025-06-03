@@ -1,14 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import type { Project } from '../../../types/types';
-
-
 
 interface ProjectTableProps {
   projects: Project[];
 }
 
 const ProjectTable: React.FC<ProjectTableProps> = ({ projects }) => {
+  const navigate = useNavigate();
+
+  const handleEdit = (id: string) => {
+    navigate(`/projects/${id}/edit`);
+  };
+
   return (
     <div className="container mt-4">
       <h3 className="mb-4">Project List</h3>
@@ -22,6 +27,7 @@ const ProjectTable: React.FC<ProjectTableProps> = ({ projects }) => {
             <th>Assigned To</th>
             <th>Due Date</th>
             <th>Description</th>
+            <th>Action</th> {/* New column for actions */}
           </tr>
         </thead>
         <tbody>
@@ -50,6 +56,14 @@ const ProjectTable: React.FC<ProjectTableProps> = ({ projects }) => {
               <td>{project.assignedTo}</td>
               <td>{new Date(project.dueDate).toLocaleDateString()}</td>
               <td>{project.description}</td>
+              <td>
+                <button
+                  className="btn btn-sm btn-outline-primary"
+                  onClick={() => handleEdit(project.id)}
+                >
+                  Edit
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
