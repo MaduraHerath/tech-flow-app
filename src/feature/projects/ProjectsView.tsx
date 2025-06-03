@@ -70,7 +70,7 @@ const ProjectList: React.FC = () => {
       />
         }
 
-        {hasRole('admin') || hasRole('project_manager') &&
+        {hasRole(['admin' ,'project_manager']) &&
           <AddProjectButton
       />
         }

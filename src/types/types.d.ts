@@ -1,8 +1,10 @@
+export type UserRole = 'admin' | 'team_member' | 'project_manager' 
+
 export interface User {
   id: number;
   email: string;
   password: string;
-  role: 'admin' | 'user' | 'manager';
+  role: UserRole;
     assignedProjects:string[];
   teams:string[];
 }

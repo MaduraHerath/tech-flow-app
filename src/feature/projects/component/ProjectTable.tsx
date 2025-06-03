@@ -28,9 +28,10 @@ const { hasRole } = useRole();
             <th>Assigned To</th>
             <th>Due Date</th>
             <th>Description</th>
-             {hasRole('admin') || hasRole('project_manager') &&
+             {hasRole(['admin','project_manager'])  &&
             <th>Action</th> 
              }
+             
           </tr>
         </thead>
         <tbody>
@@ -60,7 +61,7 @@ const { hasRole } = useRole();
               <td>{new Date(project.dueDate).toLocaleDateString()}</td>
               <td>{project.description}</td>
               <td>
-                {hasRole('admin') || hasRole('project_manager') &&
+                 {hasRole(['admin','project_manager'])  &&
                 <button
                   className="btn btn-sm btn-outline-primary"
                   onClick={() => handleEdit(project.id)}
