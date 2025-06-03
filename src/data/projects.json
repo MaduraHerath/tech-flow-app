@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "name": "Website Redesign",
+    "status": "in-progress",
+    "priority": "high",
+    "teamId": "team-01",
+    "teamName": "Design Team",
+    "assignedTo": "Alice",
+    "createdBy": "Bob",
+    "dueDate": "2025-06-30",
+    "description": "Revamp the company website for a modern look."
+  },
+  {
+    "id": "2",
+    "name": "Backend Refactor",
+    "status": "planning",
+    "priority": "meadium",
+    "teamId": "team-02",
+    "teamName": "Backend Team",
+    "assignedTo": "John",
+    "createdBy": "Mike",
+    "dueDate": "2025-07-15",
+    "description": "Refactor backend services to a microservice architecture."
+  },
+  {
+    "id": "3",
+    "name": "Mobile App QA",
+    "status": "review",
+    "priority": "low",
+    "teamId": "team-03",
+    "teamName": "QA Team",
+    "assignedTo": "Emma",
+    "createdBy": "Sara",
+    "dueDate": "2025-06-20",
+    "description": "Conduct final QA tests before release."
+  }
+]

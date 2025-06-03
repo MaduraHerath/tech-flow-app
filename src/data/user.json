@@ -1,0 +1,22 @@
+[{
+    "email":"admin@company.com",
+    "password" : "admin123",
+    "role" : "admin",
+    "name" : "Sarah Admin",
+    "teams":["all"]
+},
+{
+    "email":"pm@company.com",
+    "password" : "pm123",
+    "role" : "project_manager",
+    "name" : "Mike PM",
+    "teams":["frontend","backend"]
+},
+{
+    "email":"dev@company.com",
+    "password" : "dev123",
+    "role" : "team_member",
+    "name" : "Alex Developer",
+    "teams":["frontend"],
+    "assignedProjects":["1","2"]
+}]
